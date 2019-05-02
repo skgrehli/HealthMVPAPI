@@ -124,7 +124,7 @@ class User(AbstractBaseUser):
 
 def user_post_save(sender, instance, signal, *args, **kwargs):
 
-    if not instance.is_verified:
+    if not instance.is_email_verified:
         # Send verification email
         pass
         # send_verification_email.delay(instance.pk)

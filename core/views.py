@@ -81,8 +81,8 @@ class LoginView(JSONWebTokenAPIView):
                 # from custom_logger import DatabaseCustomLogger
                 # d = DatabaseCustomLogger()
                 # d.database_logger(123)
-                username = request.data.get('username')
-                user = User.objects.get(username=username)
+                email = request.data.get('email')
+                user = User.objects.get(email=email)
                 if not user.is_email_verified:
                     return Response({
                         'status': False,

@@ -12,7 +12,7 @@ from rest_framework import status, viewsets
 from rest_framework.views import APIView
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_jwt.serializers import JSONWebTokenSerializer
 from rest_framework_jwt.views import JSONWebTokenAPIView
 
@@ -33,6 +33,8 @@ from core.utils import generate_jwt_token
 
 class RegistrationAPIView(APIView):
     serializer_class = UserCreateSerializer
+    permission_classes = (AllowAny,)
+    authentication_classes = []
 
     __doc__ = "Registration API for user"
 

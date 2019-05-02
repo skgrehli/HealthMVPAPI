@@ -86,7 +86,7 @@ class LoginView(JSONWebTokenAPIView):
                         'status': False,
                         'data': "Email Verification is pending",
                     }, status=status.HTTP_200_OK)
-                user_serializer = UserProfileSerializer(user)
+                user_serializer = UserListSerializer(user)
                 return Response({
                     'status': True,
                     'token': serialized_data['token'],

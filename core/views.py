@@ -83,11 +83,11 @@ class LoginView(JSONWebTokenAPIView):
                 # d.database_logger(123)
                 email = request.data.get('email')
                 user = User.objects.get(email=email)
-                if not user.is_email_verified:
-                    return Response({
-                        'status': False,
-                        'data': "Email Verification is pending",
-                    }, status=status.HTTP_200_OK)
+                # if not user.is_email_verified:
+                #     return Response({
+                #         'status': False,
+                #         'data': "Email Verification is pending",
+                #     }, status=status.HTTP_200_OK)
                 user_serializer = UserListSerializer(user)
                 return Response({
                     'status': True,
